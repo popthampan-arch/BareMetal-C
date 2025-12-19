@@ -29,6 +29,43 @@ CP   := cp
 
 TIMESTAMP_CMD := TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S%:::z"
 
+CODE_DIR := /student/code
+# -----------------------------------------------------------------------------
+# Argument Processing
+# -----------------------------------------------------------------------------
+# Set Defaults
+#    If RECURSE is undefined, use 1
+RECURSE ?= 1
+
+#    If DIR is undefined, use 'foo/BareMetal-C/code'
+ifndef DIR
+    RAW_DIR := $(abspath .)
+else
+    # Also use abspath here in case the user passes "." or relative paths
+    RAW_DIR := $(abspath $(DIR))
+endif
+
+# Sanitize DIR (replace backslashes with forward slashes)
+FIXED_DIR := $(subst \,/,$(RAW_DIR))
+
+# Regex: match /student/code OR (something)/BareMetal-C/code followed by end-of-string ($) or a slash (/)
+MATCH_CHECK := $(shell echo '$(FIXED_DIR)' | grep -E "(^/student/code(/|$$)|/BareMetal-C/code(/|$$))")
+
+ifeq ($(MATCH_CHECK),)
+    $(error [ERROR] Invalid Path Structure! The path must contain '(something)/BareMetal-C/code' OR '^/student/code'. Received: $(FIXED_DIR))
+endif
+
+# Rewrite to /student/code
+# Logic: Map root, keeping subfolders, and strip trailing slash
+FIXED_DIR := $(shell echo '$(FIXED_DIR)' | perl -pe 's|.*/BareMetal-C/code/*|/student/code/|; s|/$$||')
+STRIPPED_DIR := $(shell echo '$(FIXED_DIR)' | perl -pe 's#.*(?:/BareMetal-C|/student)/code/?##; s#^/##; s#^/##; s#/*$$##')
+
+# 3. Echo resolved values
+# x $(info RAW_DIR:      $(RAW_DIR))
+# x $(info FIXED_DIR:    $(FIXED_DIR))
+$(info STRIPPED_DIR: $(STRIPPED_DIR))
+$(info RECURSE:      $(RECURSE))
+
 # -----------------------------------------------------------------------------
 # Discovery
 # -----------------------------------------------------------------------------
@@ -38,9 +75,43 @@ TIMESTAMP_CMD := TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S%:::z"
 #    - The "_headers" folder
 #    - The root "." folder itself
 
-ALL_DIRS := $(shell find . -type d \( \( -name ".*" ! -name "." \) -o -name "_defaults" -o -name "_headers" \) -prune -o -type d ! -name "." -printf "%P\n")
-# debug print
-# $(info ALL_DIRS is $(ALL_DIRS))
+# foofooALL_DIRS := $(shell find $(FIXED_DIR) $(DEPTH) -type d \( \( -name ".*" ! -name "." \) -o -name "_defaults" -o -name "_headers" \) -prune -o -type d ! -name "." -printf "%p\n")
+# -----------------------------------------------------------------------------
+# Discovery & Target Selection
+# -----------------------------------------------------------------------------
+
+# CASE 1: Root Context (DIR was empty or just .../BareMetal-C/code)
+ifeq ($(STRIPPED_DIR),)
+    
+    # If RECURSE=0, build the Root Project only (./main.c)
+    ifeq ($(RECURSE),0)
+        ALL_DIRS := .
+    
+    # If RECURSE=1, find all sub-projects (p1, p2...), excluding Root (.)
+    else
+        ALL_DIRS := $(shell find . -type d \( \( -name ".*" ! -name "." \) -o -name "_defaults" -o -name "_headers" \) -prune -o -type d ! -name "." -printf "%P\n")
+    endif
+
+# CASE 2: Specific Target Context (DIR was .../BareMetal-C/code/bar)
+else
+
+    # Verify target exists
+    ifeq ($(wildcard $(STRIPPED_DIR)),)
+        $(error [ERROR] The target directory '$(STRIPPED_DIR)' does not exist!)
+    endif
+
+    # If RECURSE=0, build ONLY that target folder
+    # (If you wanted RECURSE=1 to search INSIDE bar, you would add a find command here)
+    ALL_DIRS := $(STRIPPED_DIR)
+
+endif
+
+# Debug Output
+$(info --------------------------------)
+$(info MODE:      RECURSE=$(RECURSE))
+$(info TARGET:    $(if $(STRIPPED_DIR),$(STRIPPED_DIR),Root))
+$(info BUILDING:  $(ALL_DIRS))
+$(info --------------------------------)
 
 # -----------------------------------------------------------------------------
 # Target: "all"

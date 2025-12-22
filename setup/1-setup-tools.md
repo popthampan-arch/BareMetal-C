@@ -221,32 +221,39 @@ cd code
 ```
 and we use `make` to build our C programs.
 ```bash
-make 000-run.bin
+make DIR='.test' RECURSE=0
 ```
 
 and it should say (not exactly, but very similar):
 > ```
-> sdasz80 -l -o default-startup.rel default-startup.s
-> sdcc -mz80 --std c99 --Werror  -c 000-test-mem-nmi-for-00.c -o 000-test-mem-nmi-for-00.rel
-> [000] NON_HANDLER_OBJ:
-> [000] HANDLER_OBJ:     000-test-mem-nmi-for-00.rel
-> [000] STARTUP_OBJ:     000-startup.rel
-> [000] MEMMAP:          000-memmap.ld
-> sdcc -mz80 --no-std-crt0 000-startup.rel 000-test-mem-nmi-for-00.rel  -Wl-u -Wl-f,000-memmap.ld -o 000-run.ihx
-> ...Generating Binary and Disassembly 000-run.bin and 000-run.txs...
-> sdobjcopy -I ihex -O binary 000-run.ihx 000-run.bin
-> z80dasm -a -l -t -g0 000-run.bin 2> /dev/null
-> ----------------------------------------------------------------
+>   ...
+>   NON_HANDLER_OBJ: .test/main.rel
+>   HANDLER_OBJ:
+>   STARTUP_OBJ:     _defaults/startup_no_int.rel
+>   MEMMAP:          _defaults/memmap.ld
+> -b _CODE = 0x0100
+> -b _DATA = 0x4200
+> -g _STACK_TOP = 0xC000
+>
+> sdcc -mz80 --no-std-crt0 _defaults/startup_no_int.rel  .test/main.rel -Wl-u -Wl-f,_defaults/memmap.ld -o .test/.test.ihx
+>
+> >> Generating Binary and Disassembly .test.bin and .test.txs...
+> sdobjcopy -I ihex -O binary .test/.test.ihx .test/.test.bin
+> z80dasm -a -l -t -g0 .test/.test.bin 2> /dev/null > .test/.test.txs
+> 2025-12-22 23:30:46+07 ------------ built .test.bin ------------
 > ```
 
 and finally
 ```
-make clean
+make clean DIR='.test'
 ```
 
 and it should say:
 >  ```
->  rm -f *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs
+>     ...
+>  >> Cleaning artifacts in code folders (recursive)...
+>     cleaning .test
+> 2025-12-22 23:33:06+07 ------------ clean successful ------------
 >  ```
 
 ---
@@ -256,7 +263,7 @@ and get back to `tool-prompt`:
 
 Log out of **tool-prompt**. Easy. type `ctrl + d` or type `exit` and you will see:
 > ```
-> [baremetal-c]:/student/... #
+> [baremetal-c]:/student/code #
 > exit
 > ```
 and the prompt changes to `PS C:\...` (Windows), or `name@computername BareMetal-C %` (macOS)

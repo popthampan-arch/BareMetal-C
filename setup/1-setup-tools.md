@@ -15,12 +15,12 @@ the text in the box with **`|`** on the left is the output from the computer (ex
 - **macOS:** contains specific macOS only information.
 ### Guidelines:
 - Whatever folder you choose, make sure there is no `space` in the path name:
-- We recommend you to use your `Documents` folder:
-  - **Windows recommended location:**
+- We will support you *only if* you use `Documents` folder:
+  - **Windows location:**
     ```
 	C:\Users\NAME\Documents\BareMetal-C
 	```
-  - **macOS recommended location:**
+  - **macOS location:**
     ```
 	/Users/NAME/Documents/BareMetal-C
 	```
@@ -69,6 +69,11 @@ the text in the box with **`|`** on the left is the output from the computer (ex
   - *Github Desktop* will try to foce you to use `Documents/GitHub` folder. **Override** it!
   - **Windows:** MUST use **Local path** `C:\Users\NAME\Documents\BareMetal-C`
   - **macOS:** MUST use **Local path** `/Users/NAME/Documents/BareMetal-C`
+
+  The screenshot below is for username `dev`:
+
+  ![github desktop folder](./pix/1-github-folder.png)
+
 - Click `Clone` and wait for it to finish. Now everything resides in `Documents/BareMetal-C` folder.
 
 ---

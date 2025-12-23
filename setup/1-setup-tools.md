@@ -1,4 +1,4 @@
-# BareMetal-C Tool Setup for Windows / macOS
+<img width="960" height="723" alt="image" src="https://github.com/user-attachments/assets/18700924-7ba0-41c4-9256-afd31a6d4bbd" /># BareMetal-C Tool Setup for Windows / macOS
 
 ## 0. Conventions, guidelines, and WSL preparation
 ### Conventions:
@@ -180,6 +180,10 @@ Windows and macOS instructions are a bit different here.
   ```
   You should see `stdint.h` and `stdio.h` somewhere in the output.
 
+---
+
+## 5. Try tool command line
+
 - Copy and paste the command below into command prompt:
   ```
   docker run --name baremetal-c --rm -it -v ${PWD}:/student kongkrit/baremetal-c
@@ -194,7 +198,7 @@ Windows and macOS instructions are a bit different here.
 
 ---
 
-## 5. Test the tools (same for Windows and macOS)
+## 6. Test the tools (same for Windows and macOS)
 
 Type all the commands from `[baremetal-c]:/student #` prompt (from now on, we will call `[baremetal-c]:/student #` the **tool-prompt** to indicate that you can only run tools from here):
 
@@ -263,7 +267,7 @@ and it should say:
 
 ---
 
-## 6. How to logout of the tool prompt.
+### How to logout of the tool prompt.
 and get back to `tool-prompt`:
 
 Log out of **tool-prompt**. Easy. type `ctrl + d` or type `exit` and you will see:
@@ -278,4 +282,4 @@ and the prompt changes to `PS C:\...` (Windows), or `name@computername BareMetal
 ## 7. How to get back to the **tool-prompt**:
 - Make sure that `Docker Desktop` is running.
 - Make sure you're in the correct folder (`BareMetal-C`).
-- Repeat steps in section **4. Launching the tool environment** [above](#4-pull-and-launch-the-tool-environment).
+- Repeat steps in section **4. Launching the tool environment** [above](#5-try-tool-command-line).

@@ -48,7 +48,7 @@
                 "ghcr.io/kongkrit/baremetal-c",
                 "make",
                 "-C",
-                "/student/code"
+                "/student/code",
                 "DIR='${fileDirname}'",
                 "RECURSE=0"
             ],

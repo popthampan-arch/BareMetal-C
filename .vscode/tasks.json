@@ -28,48 +28,9 @@
                 "panel": "shared"
             },
             "problemMatcher": [
-                {
-                    "owner": "sdcc-core",
-                    "fileLocation": [
-                        "relative",
-                        "${workspaceFolder}"
-                    ],
-                    "pattern": {
-                        "regexp": "^([^:]+):(\\d+):\\s*(?:(warning|error)\\s*\\d+:\\s*)?(.*?)(?:;\\s*column\\s*(\\d+))?$",
-                        "file": 1,
-                        "line": 2,
-                        "severity": 3,
-                        "message": 4,
-                        "column": 5
-                    }
-                },
-                {
-                    "owner": "sdcc-cpp",
-                    "fileLocation": [
-                        "relative",
-                        "${workspaceFolder}"
-                    ],
-                    "pattern": {
-                        "regexp": "^([^:]+):(\\d+):(\\d+):\\s*(.*)$",
-                        "file": 1,
-                        "line": 2,
-                        "column": 3,
-                        "message": 4
-                    }
-                },
-                {
-                    "owner": "sdcc-asm",
-                    "fileLocation": [
-                        "relative",
-                        "${workspaceFolder}"
-                    ],
-                    "pattern": {
-                        "regexp": "^([^:]+\\.asm):(\\d+):\\s*Error:\\s*(.*)$",
-                        "file": 1,
-                        "line": 2,
-                        "message": 3
-                    }
-                }
+                "$sdcc-core",
+                "$sdcc-cpp",
+                "$sdcc-asm"
             ],
             "detail": "Compiles and link code."
         },

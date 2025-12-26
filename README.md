@@ -15,7 +15,7 @@ You need to follow *all the steps* from 1-4 to have a working environment for th
 - [x] 1. Setup Tools by clicking [here](./setup/1-setup-tools.md).
 - [x] 2. Setup `SimulIDE` by clicking [here](./setup/2-setup-simulide.md).
 - [x] 3. Setup `Visual Studio Code` (`VS Code`) by clicking [here](./setup/3-setup-vs-code.md).
-- [ ] 4. Test the whole system.
+- [x] 4. Test the whole system by clicking [here](./setup/4-setup-test.md).
 
 ---
 

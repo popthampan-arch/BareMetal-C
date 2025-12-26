@@ -13,8 +13,22 @@ the text in the box with **`|`** on the left is the output from the computer (ex
 > ```
 - **Windows:** contains specific Windows only information.
 - **macOS:** contains specific macOS only information.
+
+---
+
 ### Guidelines:
-- Whatever folder you choose, make sure there is no `space` in the path name:
+
+**Windows and macOS:**
+
+We *strongly* recommend you to **create a new *administrator level* user** for this class. Some of the software can run more easily.
+
+For the new *username, DO NOT use space* in the name. Example: `JanDoeII` is good, while `Jan Doe II` is bad.
+
+---
+
+Now that you have created a new user:
+
+- Choose the folders we recommend; their full path name has no `space`.
 - We will support you *only if* you use `Documents` folder:
   - **Windows location:**
     ```
@@ -24,6 +38,8 @@ the text in the box with **`|`** on the left is the output from the computer (ex
     ```
 	/Users/NAME/Documents/BareMetal-C
 	```
+
+---
 
 ### WSL prepartion (Windows only):
   Click `Windows start button` and type:
@@ -43,32 +59,32 @@ the text in the box with **`|`** on the left is the output from the computer (ex
     ```
     wsl --version
     ```
-  - If it says `WSL version: 2.x`, you're ok.
+  - If it says `WSL version: 2.x.x`, you're ok.
     
-    But if it is `1.x`, you must update `WSL` to `WSL2` by:
+    But if it is `1.x.x`, you must update `WSL` to `WSL2` by:
     ```
     wsl --update
     ```
     Reboot.
 
-    After reboot, do `wsl --version` again to check that you are on `WSL version: 2.x`.
+    After reboot, do `wsl --version` again to check that you are on `WSL version: 2.x.x`.
   
 ---
 
-## 1. (Windows & macOS) Install Github Desktop
+## 1. (Windows & macOS) Install GitHub Desktop
 
-- Download GitHub desktop from [here](https://desktop.github.com/download/).
-- Run it. You don't need to sign up, but you need to provide an email address and name. It's best that you **do not share** email addresses with friends. It can cause problems later.
+- Download GitHub desktop from [GitHub desktop page](https://desktop.github.com/download/).
+- Run it. You don't need to sign up, but you need to provide an email address and name. It's best that you *do not share the same email address* with friends. It can cause problems later.
 - From **File** menu, click **Clone a repository from the internet** and select **URL**.
 - Clone the following URL:
   ```
   https://github.com/kongkrit/BareMetal-C
   ```
 - Choose **Local path**.
-- For **Windows & macOS:** We *will only support* you if you use `Documents` folder. So, **read carefully:**
-  - *Github Desktop* will try to foce you to use `Documents/GitHub` folder. **Override** it!
-  - **Windows:** MUST use **Local path** `C:\Users\NAME\Documents\BareMetal-C`
-  - **macOS:** MUST use **Local path** `/Users/NAME/Documents/BareMetal-C`
+- For **Windows & macOS:** Use `Documents` folder. **Read carefully:**
+  - *GitHub Desktop* will try to foce you to use `Documents/GitHub` folder. **Override** it!
+  - **Windows:** Use *local path* `C:\Users\NAME\Documents\BareMetal-C`
+  - **macOS:** Use *local path* `/Users/NAME/Documents/BareMetal-C`
 
   The screenshot below is for username `dev`:
 
@@ -82,13 +98,17 @@ the text in the box with **`|`** on the left is the output from the computer (ex
 
 - Make sure you have *admin rights* on your computer. That is, you can install new programs for all users, etc.
 - Make sure you don't have anything important running. `Docker Desktop` may force you to log out to complete the installation.
-- Download `Docker Desktop` from [here](https://www.docker.com/products/docker-desktop/).
+- Download `Docker Desktop` from [Docker](https://www.docker.com/products/docker-desktop/).
+
   Click *Download Docker Destop* and choose the drop down that matches your computer's CPU:
+
   - **Windows:** Choose `Windows AMD64`
   - **macOS with M-series chip** (starting in late 2020): `Mac - Apple Silicon`
   - **Older macOS with Intel CPU** (before late 2020): `Mac - Intel Chip`
 
 - Install `Docker Desktop` and `Accept` Docker Subscription Service Agreement. It's free for personal use.
+
+---
 
   ### For Windows:
   - Make sure the following box is **checked ✔. We will use `WSL2`**:
@@ -103,6 +123,8 @@ the text in the box with **`|`** on the left is the output from the computer (ex
   - **Afer installation, it will force you to log out.** Just log back in.
   - You can skip all the questions
 
+---
+
   ### For macOS:
   - Drag and drop `Docker` into your `Applications` folder
   - Run `Docker` and select `Use recommended settings`
@@ -110,12 +132,17 @@ the text in the box with **`|`** on the left is the output from the computer (ex
   - Accept all the permissions
   - Wait for the docker icon (a whale with containers on top) on menu bar to stop dancing.
 
+---
+
   ### For both Windows / macOS:
   - `Accept` Docker Subscription Service Agreement. It's free for personal use.
   - Select `Personal`, not `Work`, and you can skip giving out your email address.
   - You're free to `Skip` answering all other questions as well.
   - **Make sure you get to the `Docker Desktop` main window.** It should have tabs on the left side, like: `Containers`, `Images`, `Volumes`, etc.
   - **Automatically start `Docker Desktop`** every time you start your computer:
+
+    ![docker desktop](./pix/1-docker-desktop.png)
+
     - On `Docker Desktop` main window, on the upper right bar, click `⚙ (gear icon)` for settings, then click `General` tab on the left. We recommend:
 
     > ```
@@ -284,4 +311,10 @@ and the prompt changes to `PS C:\...` (Windows), or `name@computername BareMetal
 ## 8. How to get back to the **tool-prompt**:
 - Make sure that `Docker Desktop` is running.
 - Make sure you're in the correct folder (`BareMetal-C`).
-- Repeat steps in section [**5. Try tool command line**](#5-try-tool-command-line) above.
+- Repeat steps in section [*5. Try tool command line*](#5-try-tool-command-line) above.
+
+---
+
+## 9. Next Step:
+
+Goto [set up SimulIDE](./2-setup-simulide.md).

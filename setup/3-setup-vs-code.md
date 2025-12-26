@@ -2,21 +2,21 @@
 
 This guide will help you set up Visual Studio Code (VS Code) and configure it to work with your Docker-based build environment.
 
-## Part 0: Prerequisites: Tools and SimulIDE installation
+## 0. Prerequisites: Tools and SimulIDE installation
 
-Before setting up VS Code, ensure the tools (which includes Docker Desktop) and SimulIDE are installed and running, as the sidecar depends on it.
+Before setting up VS Code, ensure the tools (which includes *GitHub Desktop* and *Docker Desktop*) and *SimulIDE* are installed and running, as VS Code depends on it.
 
-1. Follow instructions to installing tools → [here](./1-setup-tools.md).
-2. Follow instructions to install SimulIDE → [here](./2-setup-simulide.md).
+1. Follow instructions to [setup tools](./1-setup-tools.md).
+2. Follow instructions to [setup SimulIDE](./2-setup-simulide.md).
 
 ---
 
-## Part 1: Install Visual Studio Code
+## 1. Install Visual Studio Code
 
 ### For Windows
 1.  Download the **Windows installer** from the official website: [code.visualstudio.com](https://code.visualstudio.com/).
 2.  Run the installer (`VSCodeUserSetup-{version}.exe`).
-3.  Follow the prompts. **Important:** On the "Select Additional Tasks" screen, check all 4 boxes. The last box says: **"Add to PATH (requires shell restart)"**.
+3.  Follow the prompts. **Important:** On the "Select Additional Tasks" screen, *check all 4 boxes*. The last box says: **"Add to PATH (requires shell restart)"**.
 
     ![VS Code Setup Additional Tasks](./pix/3-code-00-win.png)
 5.  Click **Install**.
@@ -30,7 +30,7 @@ Before setting up VS Code, ensure the tools (which includes Docker Desktop) and 
 
 ---
 
-## Part 2: Open the Project
+## 2. Open the Project
 
 1.  Launch **VS Code**.
 2.  CLick on the `Explorer` icon.
@@ -79,7 +79,7 @@ Before setting up VS Code, ensure the tools (which includes Docker Desktop) and 
     
 ---
 
-## Part 3: Running the Build Environment
+## 3. Running the Build Environment
 
 1. Click `Explorer` icon to go back to folder explorer. Then right click on `code` folder:
 
@@ -102,3 +102,9 @@ Before setting up VS Code, ensure the tools (which includes Docker Desktop) and 
 ---
 
 We will use the **right click on a folder** to `build` and `clean` our programming projects. More instructions later!
+
+---
+
+## 4. Next step:
+
+Go to [test the environment](./4-setup-test.md).

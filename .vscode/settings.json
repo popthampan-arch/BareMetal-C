@@ -1,29 +1,28 @@
 {
-    // temporarily suppress intellisense red squiggles
-    // "C_Cpp.errorSquiggles": "disabled",
+    // --- 1. Distraction-Free UI (Applied to Student & Instructor) ---
+    "extensions.ignoreRecommendations": true,
+    "workbench.tips.enabled": false,
+    "workbench.startupEditor": "none",
 
-    // Config Line Endings
+    // --- 2. Build Configuration ---
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
 
-    // Language-specific overrides (Windows Scripts must be CRLF)
-    "[bat]": {
-        "files.eol": "\r\n"
-    },
-    "[powershell]": {
-        "files.eol": "\r\n"
-    },
+    "[bat]": { "files.eol": "\r\n" },
+    "[powershell]": { "files.eol": "\r\n" },
 
-    // makefile needs distinction between spaces and tabs
     "[makefile]": {
         "editor.insertSpaces": false,
         "editor.tabSize": 4,
         "editor.renderWhitespace": "all"
     },
 
-    // 2. File Visibility (Student View: Focused)
+    // --- 3. Global Hygiene (Hide junk for everyone) ---
     "files.exclude": {
+        // copied header files
+        ".vscode/sdcc-include": true,
+
         // Build Artifacts
         "**/*.asm": true,
         "**/*.ld": true,
@@ -36,62 +35,19 @@
         "**/*.sym": true,
         "**/*.ihx": true,
         "code/**/*.bin": true,
-        "code/.test": true,
 
-        // test files
-        "code/_instructor/_problem_matcher_tests": true,
-
-        // System/Config Files (Hide from students)
-        ".gitattributes": true,
-        ".gitignore": true,
-        ".vscode": true,
-        "_vscode-extensions": true,
-
-        // Hide git internals
+        // Internals
         ".git": true,
 
-        // --- macOS Crap ---
-        "**/.DS_Store": true,      // Finder view settings
-        "**/.AppleDouble": true,   // Resource forks
-        "**/.LSOverride": true,    // Launch Services
+        // OS Junk
+        "**/.DS_Store": true,
+        "**/.AppleDouble": true,
+        "**/.LSOverride": true,
+        "**/Thumbs.db": true,
+        "**/ehthumbs.db": true,
+        "**/Desktop.ini": true,
 
-        // --- Windows Crap ---
-        "**/Thumbs.db": true,      // Explorer thumbnails
-        "**/ehthumbs.db": true,    // Media center thumbnails
-        "**/Desktop.ini": true,    // Folder customization
-        
-        // Scripts
-        "**/*.bat": true,
-        "**/*.command": true,
-        "**/*.sh": true,
-        "**/*.ps1": true,
-
-        // Makefiles
-        "**/makefile": true,
-        "**/Makefile": true,
-
-        // License and markdowns
-        "**/LICENSE": true,
-        "**/*.md": true,
-
-        // Hidden Source Folders
-        "code/.obsolete*": true,
-        "code/.c-experiments": true,
-        "code/_defaults": true,
-        "code/_headers": true,
-        "code/default-*.*": true,
-
-        // Hidden Document Folders
-        "docs-*": true,
-        "setup": true,
-        
-        // Sim Logic
-        "sim": true,
-
-        // Source filters
-        "**/*.s": true
-    },
-    "search.exclude": {
-        "**/*.md": true
+        // dummy file to let above section end with comma
+        "IfYourFileNameIsThisYouDeserveIt_-_-_-": true
     }
 }

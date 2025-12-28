@@ -30,7 +30,15 @@ Before setting up VS Code, ensure the tools (which includes *GitHub Desktop* and
 
 ---
 
-## 2. Open the Project
+## 2. Open the Workspace
+
+1.  Quit *VS Code* if it is open.
+2.  Go it `Documents/BareMetal-C` folder using *Windows File Explorer* or *macOS Finder*.
+3.  Double click on `student.code-workspace` on that folder. The workspace file *may* show up as `student`. That is the correct one.
+   
+    (full path is `~/Documents/BareMetal-C/student.code-workspace`)
+
+    **macOS:** If there's any prompt asking you for any permission, give permission.
 
 1.  Launch **VS Code**.
 2.  CLick on the `Explorer` icon.

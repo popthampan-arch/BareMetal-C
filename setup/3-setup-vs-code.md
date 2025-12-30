@@ -76,13 +76,17 @@ Before setting up VS Code, ensure the tools (which includes *GitHub Desktop* and
 
     ![extension icon](./pix/3-code-07.1.png)
 
-3.  Use **Windows File Explorer** or **macOS Finder**, go to `Documents/BareMetal-C/_vscode_extensions` folder.
+3.  Use **Windows File Explorer** or **macOS Finder**, go to
+    ```
+    Documents/BareMetal-C/_vscode_extensions
+    ```
+    folder.
 
     Drag file `baremetal-c-builder-0.X.X.vsix` (`X.X` may change) to the *extension area*:
 
     ![extension area](./pix/3-code-07.2.png)
 
-4.  Close VS Code. Reopen it. Click the `Extensions` icon again. Now `BareMetal-C-Builder` Extension should show up:
+5.  Close VS Code. Reopen it. Click the `Extensions` icon again. Now `BareMetal-C-Builder` Extension should show up:
 
     ![extension shown](./pix/3-code-07.3.png)
     

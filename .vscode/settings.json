@@ -1,7 +1,5 @@
 {
-    // --- 1. Distraction-Free UI (Applied to Student & Instructor) ---
-    "extensions.ignoreRecommendations": true,
-    "workbench.tips.enabled": false,
+    // --- 1. Distraction-Free UI ---
     "workbench.startupEditor": "none",
 
     // --- 2. Build Configuration ---

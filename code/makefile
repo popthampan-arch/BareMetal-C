@@ -29,7 +29,7 @@ CP   := cp
 
 TIMESTAMP_CMD := env TZ="Asia/Bangkok" date "+%Y-%m-%d %H_%M_%S %z"
 
-CODE_DIR := /student/code
+CODE_DIR := /BareMetal-C/code
 # -----------------------------------------------------------------------------
 # Argument Processing
 # -----------------------------------------------------------------------------
@@ -48,17 +48,17 @@ endif
 # Sanitize DIR (replace backslashes with forward slashes)
 RAW_DIR2 := $(subst \,/,$(RAW_DIR))
 
-# Regex: match /student/code OR (something)/BareMetal-C/code followed by end-of-string ($) or a slash (/)
-MATCH_CHECK := $(shell echo '$(RAW_DIR2)' | grep -E "(^/student/code(/|$$)|/BareMetal-C/code(/|$$))")
+# Regex: match /BareMetal-C/code OR (something)/BareMetal-C/code followed by end-of-string ($) or a slash (/)
+MATCH_CHECK := $(shell echo '$(RAW_DIR2)' | grep -E "(^/BareMetal-C/code(/|$$)|/BareMetal-C/code(/|$$))")
 
 ifeq ($(MATCH_CHECK),)
-    $(error [ERROR] Invalid Path Structure! The path must contain '(something)/BareMetal-C/code' OR '^/student/code'. Received: $(FIXED_DIR))
+    $(error [ERROR] Invalid Path Structure! The path must contain '(something)/BareMetal-C/code' OR '^/BareMetal-C/code'. Received: $(FIXED_DIR))
 endif
 
-# Rewrite to /student/code
+# Rewrite to /BareMetal-C/code
 # Logic: Map root, keeping subfolders, and strip trailing slash
-FIXED_DIR := $(shell echo '$(RAW_DIR2)' | perl -pe 's|.*/BareMetal-C/code/*|/student/code/|; s|/$$||')
-STRIPPED_DIR := $(shell echo '$(FIXED_DIR)' | perl -pe 's#.*(?:/BareMetal-C|/student)/code/?##; s#^/##; s#^/##; s#/*$$##')
+FIXED_DIR := $(shell echo '$(RAW_DIR2)' | perl -pe 's|.*/BareMetal-C/code/*|/BareMetal-C/code/|; s|/$$||')
+STRIPPED_DIR := $(shell echo '$(FIXED_DIR)' | perl -pe 's#.*(?:/BareMetal-C|/BareMetal-C)/code/?##; s#^/##; s#^/##; s#/*$$##')
 
 # 3. Echo resolved values
 # $(info RAW_DIR:      $(RAW_DIR))

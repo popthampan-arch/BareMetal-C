@@ -19,7 +19,7 @@
             ".gitignore": true,
             ".vscode": true,
             "_vscode-extensions": true,
-            "student.code-workspace": true,
+            "student.code-workspace*": true,
             
             // Hiding Complexity (students)
             "**/makefile": true,
@@ -39,30 +39,6 @@
             "code/_defaults": true,
             "code/_headers": true,
 
-            // OS Junk - macOS
-            "**/.DS_Store": true,
-            "**/.AppleDouble": true,
-            "**/.LSOverride": true,
-            "**/._*": true,
-            "**/.Spotlight-V100": true,
-            "**/.Trashes": true,
-            "**/.fseventsd": true,
-
-            // OS Junk - Windows
-            "**/Thumbs.db": true,
-            "**/ehthumbs.db": true,
-            "**/Desktop.ini": true,
-            "**/$RECYCLE.BIN/": true,
-            "**/*.lnk": true,
-
-            // OS Junk - Linux
-            "**/.tscache": true,
-
-            // hide obsolete stuff
-            "**/*.obsolete*": true,
-
-            // dummy file to let above section end with comma
-            "IfYourFileNameIsThisYouDeserveIt_-_-_-": true
         },
         "search.exclude": {
             "**/*.md": true

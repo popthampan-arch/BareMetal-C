@@ -19,14 +19,12 @@
     // --- 3. Global Hygiene (Hide junk for everyone) ---
     "files.exclude": {
 
-        // Hiding Test Files
-        "code/.test": true,
-        "code/.obsolete*": true,
-        "code/.c-experiments": true,
-        "code/_instructor/_problem_matcher_tests": true,
-
         // copied header files
         ".vscode/sdcc-include": true,
+
+        // Hiding Test Files and intentionally buggy files
+        "code/.test": true,
+        "code/_instructor/_problem_matcher_tests": true,
 
         // Build Artifacts
         "**/*.asm": true,
@@ -41,17 +39,40 @@
         "**/*.ihx": true,
         "code/**/*.bin": true,
 
-        // Internals
-        ".git": true,
+        "code/student/.hello": true,
 
-        // OS Junk
+        // ===============================
+        // Hide from both students and dev
+        // ===============================
+
+        // Hiding git internals
+        "**/.git": true,
+        
+        // OS Junk - macOS
         "**/.DS_Store": true,
         "**/.AppleDouble": true,
         "**/.LSOverride": true,
+        "**/._*": true,
+        "**/.Spotlight-V100": true,
+        "**/.Trashes": true,
+        "**/.fseventsd": true,
+        
+        // OS Junk - Windows
         "**/Thumbs.db": true,
         "**/ehthumbs.db": true,
         "**/Desktop.ini": true,
-
+        "**/$RECYCLE.BIN/": true,
+        "**/*.lnk": true,
+        
+        // OS Junk - Linux
+        "**/.tscache": true,
+        
+        // Office Ghost Files (Windows/Mac)
+        "**/~$*": true,
+        
+        // hide obsolete stuff
+        "**/*.obsolete*": true,
+        
         // dummy file to let above section end with comma
         "IfYourFileNameIsThisYouDeserveIt_-_-_-": true
     }

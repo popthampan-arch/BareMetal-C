@@ -1,6 +1,15 @@
 {
     "name": "BareMetal C Student",
     "image": "ghcr.io/kongkrit/baremetal-c",
+
+    "workspaceMount": "source=${localWorkspaceFolder},target=/BareMetal-C,type=bind",
+    "workspaceFolder": "/BareMetal-C",
+
+    // So we can find out whether we're inside our container
+    "containerEnv": {
+        "IS_BAREMETAL_C_CONTAINER": "true"
+    },
+
     "customizations": {
         "vscode": {
             "extensions": [
@@ -8,19 +17,19 @@
             ],
             "settings": {
 
-                // --- 1. Distraction-Free UI ---
+                // --- Distraction-Free UI ---
                 "extensions.ignoreRecommendations": true,
                 "workbench.tips.enabled": false,
                 "workbench.startupEditor": "none",
                 
                 "files.eol": "\n",
+
                 // Configure IntelliSense for SDCC automatically
                 "C_Cpp.default.compilerPath": "/usr/bin/sdcc",
                 "C_Cpp.default.cStandard": "c99",
                 "C_Cpp.default.intelliSenseMode": "clang-x86",
                 "C_Cpp.default.includePath": [
-                    "${workspaceFolder}/**",
-                    "/workspaces/BareMetal-C/**",
+                    "${workspaceFolder}/code/_headers", // user headers reside in /BareMetal-C/code/_headers
                     "/usr/share/sdcc/include"
                 ],
                 "C_Cpp.default.defines": [
@@ -36,14 +45,13 @@
                 "files.exclude": {
 
                     // Hiding Configs (students)
-                    ".devcontainer": true,
+                    ".devcontainer*": true,
                     ".gitattributes": true,
                     ".gitignore": true,
                     ".vscode": true,
                     "_vscode-extensions": true,
-                    "student.code-workspace": true,
-                    "student.code-workspace_": true,
-                        
+                    "student.code-workspace*": true,
+
                     // Hiding Complexity (students)
                     "**/makefile": true,
                     "**/Makefile": true,
@@ -57,7 +65,7 @@
                     "setup": true,
                     "sim": true,
                     "**/*.s": true,
-                        
+
                     // Hiding _defaults & _headers Files (students)
                     "code/_defaults": true,
                     "code/_headers": true,
@@ -66,7 +74,6 @@
                     "IfYourFileNameIsThisYouDeserveIt_-_-_-": true
                 },
                 "search.exclude": {
-                    "**/*.md": true
                 }
             }
         }

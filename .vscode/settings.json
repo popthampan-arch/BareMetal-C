@@ -75,5 +75,7 @@
         
         // dummy file to let above section end with comma
         "IfYourFileNameIsThisYouDeserveIt_-_-_-": true
+    },
+    "search.exclude": {
     }
 }

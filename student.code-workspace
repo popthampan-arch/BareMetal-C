@@ -39,9 +39,10 @@
             "code/_defaults": true,
             "code/_headers": true,
 
+            // dummy file to let above section end with comma
+            "IfYourFileNameIsThisYouDeserveIt_-_-_-": true
         },
         "search.exclude": {
-            "**/*.md": true
         }
     }
 }

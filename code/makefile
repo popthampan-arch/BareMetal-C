@@ -48,24 +48,24 @@ endif
 # Sanitize DIR (replace backslashes with forward slashes)
 RAW_DIR2 := $(subst \,/,$(RAW_DIR))
 
-# Regex: match /BareMetal-C/code OR (something)/BareMetal-C/code followed by end-of-string ($) or a slash (/)
-MATCH_CHECK := $(shell echo '$(RAW_DIR2)' | grep -E "(^/BareMetal-C/code(/|$$)|/BareMetal-C/code(/|$$))")
+# Regex: match (something)?/BareMetal-C/code followed by end-of-string ($) or a slash (/)
+#    Note: '.*?' is non-greedy match to handle long paths correctly.
+FIXED_DIR := $(shell echo '$(RAW_DIR2)' | perl -ne 'if(s|.*?/BareMetal-C/code/*|/BareMetal-C/code/|){ s|/$$||; print; }')
 
-ifeq ($(MATCH_CHECK),)
-    $(error [ERROR] Invalid Path Structure! The path must contain '(something)/BareMetal-C/code' OR '^/BareMetal-C/code'. Received: $(FIXED_DIR))
+# 2. Check: If FIXED_DIR is empty, the Perl regex failed to match.
+ifeq ($(FIXED_DIR),)
+    $(info RAW_DIR2 = $(RAW_DIR2))
+    $(error [ERROR] Invalid Path! Must contain '/BareMetal-C/code')
 endif
 
-# Rewrite to /BareMetal-C/code
-# Logic: Map root, keeping subfolders, and strip trailing slash
-FIXED_DIR := $(shell echo '$(RAW_DIR2)' | perl -pe 's|.*/BareMetal-C/code/*|/BareMetal-C/code/|; s|/$$||')
 STRIPPED_DIR := $(shell echo '$(FIXED_DIR)' | perl -pe 's#.*(?:/BareMetal-C|/BareMetal-C)/code/?##; s#^/##; s#^/##; s#/*$$##')
 
 # 3. Echo resolved values
-# $(info RAW_DIR:      $(RAW_DIR))
-# $(info RAW_DIR2:     $(RAW_DIR2))
-$(info FIXED_DIR    - $(FIXED_DIR))
-$(info STRIPPED_DIR - $(STRIPPED_DIR))
-$(info RECURSE=     - $(RECURSE))
+# $(info RAW_DIR      = $(RAW_DIR))
+$(info RAW_DIR2     = $(RAW_DIR2))
+$(info FIXED_DIR    = $(FIXED_DIR))
+$(info STRIPPED_DIR = $(STRIPPED_DIR))
+$(info RECURSE=     = $(RECURSE))
 
 # -----------------------------------------------------------------------------
 # Discovery & Target Selection

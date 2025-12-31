@@ -7,7 +7,11 @@
     ],
 
     "settings": {
-                
+        // enforce opening folder through .code-workspace
+        "terminal.integrated.env.linux":   { "IS_WORKSPACE_OPEN": "true" },
+        "terminal.integrated.env.osx":     { "IS_WORKSPACE_OPEN": "true" },
+        "terminal.integrated.env.windows": { "IS_WORKSPACE_OPEN": "true" },
+
         // --- Distraction-Free UI ---
         "extensions.ignoreRecommendations": true,
         "workbench.tips.enabled": false,

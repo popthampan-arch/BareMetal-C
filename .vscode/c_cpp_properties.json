@@ -7,14 +7,18 @@
                 "${workspaceFolder}/.vscode/sdcc-include"
             ],
             "defines": [
+
+                // No '=' sets flag to 1 (True) for enabling #ifdef feature blocks.
                 "__SDCC",
-                "__SCCC_z80",
-                "__naked=",
+                "__SDCC_z80",
+
+                // With '=' defines as empty string, hiding non-standard keywords from IntelliSense.
+                "__naked=", 
                 "__critical=",
                 "__interrupt=",
-//                "__interrupt(x)=",
                 "__at(x)=",
                 "__asm__(x)="
+
             ],
             "compilerPath": "",
             "cStandard": "c99",

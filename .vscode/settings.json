@@ -1,6 +1,15 @@
 {
-    // --- 1. Distraction-Free UI ---
-    "workbench.startupEditor": "none",
+
+    "devContainers.repositoryConfigurationPaths": [ "." ],
+    "devContainers.fallbackInsecureGateway": true,
+    "devContainers.openInContainerMethod": "always",
+
+    // 1. Force the README to open on startup
+    "workbench.startupEditor": "readme",
+    // "workbench.startupEditor": "none",
+
+    // 2. Force Markdown to open in Preview Mode ONLY
+    "workbench.editorAssociations": {"*.md": "vscode.markdown.preview.editor"},
 
     // --- 2. Build Configuration ---
     "files.eol": "\n",
@@ -19,7 +28,7 @@
     // --- 3. Global Hygiene (Hide junk for everyone) ---
     "files.exclude": {
 
-        // copied header files
+        // Hide copied header files
         ".vscode/sdcc-include": true,
 
         // Hiding Test Files and intentionally buggy files
@@ -47,6 +56,9 @@
 
         // Hiding git internals
         "**/.git": true,
+
+        // Hiding LICENSE
+        "**/LICENSE": true,
         
         // OS Junk - macOS
         "**/.DS_Store": true,

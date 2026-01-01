@@ -57,6 +57,7 @@
         
         // Hiding Jekyll theme
         "_config.yml": true,
+        "assets": true,
 
         // Hiding LICENSE
         "**/LICENSE": true,

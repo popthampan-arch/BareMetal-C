@@ -19,9 +19,9 @@ You must have installed the following:
 
   If you don't, click `File` and select `Open Workspace from File...` and choose `student.code-workspace`.
 
-  ![open folder](./pix/3-space-name.png)
+  ![open folder](./pix/3-check.png)
 
-  **IMPORTANT:** Things won't work if you don't see ✅ and 🤖. Double-check!
+  **IMPORTANT:** Things won't work if you don't see `✅ BareMetal-C 🤖` (2) and `Dev Container` (3). Double-check!
 
 - Go to folder `_test_setup` and right click. Choose `Build BareMetal-C Project`
 

@@ -18,7 +18,7 @@ Before setting up VS Code, ensure the tools (which includes *GitHub Desktop* and
 2.  Run the installer (`VSCodeUserSetup-{version}.exe`).
 3.  Follow the prompts. **Important:** On the "Select Additional Tasks" screen, *check all 4 boxes*. The last box says: **"Add to PATH (requires shell restart)"**.
 
-    ![VS Code Setup Additional Tasks](./pix/3-code-00-win.png)
+    ![VS Code Setup Additional Tasks](./pix/3-win-setup.png)
 5.  Click **Install**.
 
 ### For macOS
@@ -44,73 +44,63 @@ Before setting up VS Code, ensure the tools (which includes *GitHub Desktop* and
 
     ![trust workspace](./pix/3-trust-workspace.png)
 
-4.  Close `VS Code`.
+4.  Wait a while. The following window will pop up:
 
-5.  Reopen `VS Code`. If things work correctly, it should come right back to `student.code-workspace`. After running `VS Code` this time, you will see:
+    ![install recommended](./pix/3-install-recommended.png)
 
-    ![workspace name](./pix/3-space-name.png)
+    Click `Install` to install *recommended extensions*.
+
+    Wait a little while longer. It will ask you to reopen in container:
+
+    ![reopen](./pix/3-reopen.png)
+
+    Click `Reopen in Container`.
+
+    It will show that it is `ⓘ Connecting to Dev Container`. Just wait.
+
+    Until this screen appears:
+
+    ![in container](./pix/3-in-container.png)
+
+    The blue bar on the bottom left indicates that it is working correctly.
+
+5.  If things work correctly, you will see:
+
+    ![check](./pix/3-check.png)
 
     If it doesn't look like the screenshot above, click `Explorer` Icon (1).
     
-    Then, check the name at (2). You **must see** the checkmark (✅) and the robot (🤖). The full thing in (2) must be:
+    Then, check the name at (2). You **must see** the *checkmark* (✅) and the *robot* (🤖). The full thing in (2) must be:
 
-    ```
-    ✅ BareMetal-C 🤖
-    ```
+    `✅ BareMetal-C 🤖`
 
-    If it does not look like the above, click `File` and select `Open Workspace from File...` and choose `student.code-workspace`.
+    and the blue `Dev Container` bar on the bottom left (3).
 
-**This is the way we start `VS Code` for this class.**
+    If it does not look like the above, close `VS Code` and re-open it and see the steps that you may be missing.
 
----
+**Double clicking `student.code-workspace` is the way we start `VS Code` for this class.**
 
-## 3. Install the Extensions
-
-1.  While you're installing stuff, the pop-up may appear on the bottom right, asking you to install C/C++ extension. Click `Install`.
-
-    ![c-extension](./pix/3-c-extension.png)
-
-2.  **Add `baremetal-c-builder` extension to VS Code:**
-
-    Click on the `Extensions` icon:
-
-    ![extension icon](./pix/3-code-07.1.png)
-
-3.  Use **Windows File Explorer** or **macOS Finder**, go to
-    ```
-    Documents/BareMetal-C/_vscode_extensions
-    ```
-    folder.
-
-    Drag file `baremetal-c-builder-0.X.X.vsix` (`X.X` may change) to the *extension area*:
-
-    ![extension area](./pix/3-code-07.2.png)
-
-5.  Close VS Code. Reopen it. Click the `Extensions` icon again. Now `BareMetal-C-Builder` Extension should show up:
-
-    ![extension shown](./pix/3-code-07.3.png)
-    
 ---
 
 ## 4. Running the Build Environment
 
 1. Click `Explorer` icon to go back to folder explorer. Then right click on `code` folder:
 
-   ![right click code](./pix/3-code-07.4.png)
+   ![right click code](./pix/3-right-click-code.png)
 
 2. A context menu opens up, choose `Build BareMetal-C Projects (All)`
 
-   ![build all](./pix/3-code-07.5.png)
+   ![build all](./pix/3-build-all.png)
 
    A lot of text will be printed in the `terminal`, but eventually, you should have all projects built. Look for `(TIME) ------ built PROJECT_NAME.bin -------` like this:
 
-   ![build successful](./pix/3-code-07.6.png)
+   ![built all](./pix/3-built-all.png)
 
    **If you got this far, your installation is successful.**
 
 3. Let's try clean up. Right click on folder `code` again, but this time, choose `Clean BareMetal-C Projects (All)` and you should see `terminal` with the text `(TIME) -------- clean successful --------`
 
-   ![clean successful](./pix/3-code-07.7.png)
+   ![cleaned](./pix/3-cleaned.png)
 
 ---
 

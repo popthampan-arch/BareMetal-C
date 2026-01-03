@@ -1,10 +1,9 @@
 ### C99 Operator Precedence Table
 
-The table below lists the operators from **Highest Precedence (0)** to **Lowest Precedence (14)**.
+The table below lists the operators from **Highest Precedence (1)** to **Lowest Precedence (14)**.
 
 | Rank | Operators | Description | Associativity |
 | :--- | :--- | :--- | :--- |
-| **0** | `( )` | **Grouping Parentheses** (Explicit Precedence) | **N/A** |
 | **1** | `()` `[]` `.` `->` | Function call, Array subscript, Structure member access, Structure pointer member access | **Left-to-Right** |
 | | `++` `--` | **Postfix** Increment / Decrement (e.g., `i++`) | |
 | **2** | `++` `--` | **Prefix** Increment / Decrement (e.g., `++i`) | **Right-to-Left** |

@@ -4,6 +4,8 @@ Writing C directly to the hardware!
 - **URL:** <https://github.com/kongkrit/BareMetal-C>
 - **Purpose:** Repository for teaching/learning `BareMetal-C`
 
+![photo](./docs-extra/bmc-1024.jpg)
+
 ---
 
 ## Setup Docoments

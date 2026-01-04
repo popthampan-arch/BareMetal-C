@@ -3,13 +3,15 @@
 Writing C directly to the hardware!
 - **URL:** <https://github.com/kongkrit/BareMetal-C>
 - **Purpose:** Repository for teaching/learning `BareMetal-C`
+- **Go to [Setup Documents](#setup-documents)**
 
-  - of course, we have pictures!
-    ![photo](./docs-extra/bmc-1024.jpg)
+<p align="center">
+  <img src="./docs-extra/bmc-1024.jpg" style="max-width:512px;">
+</p>
 
 ---
 
-## Setup Docoments
+## Setup Documents
 
 These are the instructions to follow to set up your computer to be ready to do assignments.
 

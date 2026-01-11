@@ -36,6 +36,10 @@ code/**/*.lib
 # ===================
 code/student/*
 !code/student/.hello
+code/_headers_student/*
+!code/_headers_student/.hello
+code/_library_student/*
+!code/_library_stuent/.hello
 
 # Copied Binary from code
 sim/**/*.bin

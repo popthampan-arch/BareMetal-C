@@ -46,8 +46,6 @@
         "**/*.ihx": true,
         "code/**/*.bin": true,
 
-        "code/student/.hello": true,
-
         // ====================================================
         // BareMetal-C-Dev/.vscode/settings_for_hidden_files.md
         // ====================================================
